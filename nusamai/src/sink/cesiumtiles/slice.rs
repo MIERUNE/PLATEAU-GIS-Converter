@@ -255,8 +255,6 @@ fn slice_polygon(
     for yi in y_range.clone() {
         let (k1, k2) = tiling::y_slice_range(zoom, yi);
 
-        // todo?: check interior bbox to optimize
-
         for (ri, (ring, uv_ring)) in poly.rings().zip_eq(poly_uv.rings()).enumerate() {
             if ring.raw_coords().is_empty() {
                 continue;
@@ -334,8 +332,6 @@ fn slice_polygon(
 
         for (xi, xs) in x_iter {
             let (k1, k2) = tiling::x_slice_range(zoom, xi, xs);
-
-            // todo?: check interior bbox to optimize ...
 
             let key = (
                 zoom,
